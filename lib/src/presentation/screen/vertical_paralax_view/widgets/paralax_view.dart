@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../model/location_model.dart';
-import '../widgets/location_card.dart';
+import '../../../../data/models/location_model.dart';
+import 'location_card.dart';
 
 class ParallaxRecipe extends StatelessWidget {
   const ParallaxRecipe({super.key});

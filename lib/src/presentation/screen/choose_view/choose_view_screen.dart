@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:gallery/main.dart';
-
-import 'vertical_paralax_view_screen.dart';
+part of '../../presentation.dart';
 
 class ChooseViewScreen extends StatelessWidget {
   const ChooseViewScreen({super.key});
@@ -26,7 +23,8 @@ class ChooseViewScreen extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const MyHomePage()),
+                  MaterialPageRoute(
+                      builder: (context) => const VerticalParalaxScreen()),
                 );
               },
               child: const Row(

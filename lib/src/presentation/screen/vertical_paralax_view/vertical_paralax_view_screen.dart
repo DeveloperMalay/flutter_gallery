@@ -1,19 +1,17 @@
-import 'package:flutter/material.dart';
+part of '../../presentation.dart';
 
-import '../main.dart';
-import 'horizontal_paralax_view_screen.dart';
-import 'paralax_view_screen.dart';
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class VerticalParalaxScreen extends StatefulWidget {
+  const VerticalParalaxScreen({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<VerticalParalaxScreen> createState() => _VerticalParalaxScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _VerticalParalaxScreenState
+    extends BaseStateWrapper<VerticalParalaxScreen> {
   @override
-  Widget build(BuildContext context) {
+  Widget onBuild(
+      BuildContext context, BoxConstraints constraints, PlatformType platform) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -49,4 +47,16 @@ class _MyHomePageState extends State<MyHomePage> {
       body: const ParallaxRecipe(),
     );
   }
+
+  @override
+  void onDispose() {}
+
+  @override
+  void onInit() {}
+
+  @override
+  void onPause() {}
+
+  @override
+  void onResume() {}
 }
