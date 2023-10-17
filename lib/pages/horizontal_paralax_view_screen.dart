@@ -7,13 +7,13 @@ class HorizontalParalaxViewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
+        leading: const Icon(
           Icons.arrow_back_ios,
           color: Colors.black,
         ),
         backgroundColor: Colors.white,
       ),
-      body: Column(
+      body: const Column(
         children: [],
       ),
     );
@@ -21,12 +21,15 @@ class HorizontalParalaxViewScreen extends StatelessWidget {
 }
 
 class AnimatedContainerPopup extends StatefulWidget {
+  const AnimatedContainerPopup({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _AnimatedContainerPopupState createState() => _AnimatedContainerPopupState();
 }
 
 class _AnimatedContainerPopupState extends State<AnimatedContainerPopup> {
-  double _containerHeight = 100.0;
+  final double _containerHeight = 100.0;
   bool _isPopupVisible = false;
 
   void _togglePopup() {
@@ -39,14 +42,14 @@ class _AnimatedContainerPopupState extends State<AnimatedContainerPopup> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Animated Container Popup'),
+        title: const Text('Animated Container Popup'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AnimatedContainer(
-              duration: Duration(seconds: 1),
+              duration: const Duration(seconds: 1),
               height: _containerHeight,
               width: 200,
               color: Colors.blue,
@@ -55,12 +58,12 @@ class _AnimatedContainerPopupState extends State<AnimatedContainerPopup> {
                   onPressed: () {
                     _togglePopup();
                   },
-                  child: Text('Toggle Popup'),
+                  child: const Text('Toggle Popup'),
                 ),
               ),
             ),
             if (_isPopupVisible) _buildPopup(),
-            AnimatedLikeButton()
+            const AnimatedLikeButton()
           ],
         ),
       ),
@@ -69,15 +72,15 @@ class _AnimatedContainerPopupState extends State<AnimatedContainerPopup> {
 
   Widget _buildPopup() {
     return AlertDialog(
-      title: Text('Popup Animation'),
+      title: const Text('Popup Animation'),
       content: AnimatedSize(
-        duration: Duration(milliseconds: 2500),
+        duration: const Duration(milliseconds: 2500),
         curve: Curves.easeInOutBack,
         child: Container(
           width: 200,
           height: _isPopupVisible ? 200.0 : 0.0,
           color: Colors.green,
-          child: Center(
+          child: const Center(
             child: Text('Popup Content'),
           ),
         ),
@@ -87,7 +90,7 @@ class _AnimatedContainerPopupState extends State<AnimatedContainerPopup> {
           onPressed: () {
             _togglePopup();
           },
-          child: Text('Close'),
+          child: const Text('Close'),
         ),
       ],
     );
@@ -95,7 +98,10 @@ class _AnimatedContainerPopupState extends State<AnimatedContainerPopup> {
 }
 
 class CustomLikeButton extends StatefulWidget {
+  const CustomLikeButton({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _CustomLikeButtonState createState() => _CustomLikeButtonState();
 }
 
@@ -144,14 +150,14 @@ class _CustomLikeButtonState extends State<CustomLikeButton>
                   right: 0,
                   top: 0,
                   child: Container(
-                    padding: EdgeInsets.all(4),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.all(4),
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.red,
                     ),
                     child: Text(
                       _likeCount.toString(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
@@ -207,7 +213,7 @@ class _AnimatedLikeButtonState extends State<AnimatedLikeButton>
                 child: Transform.translate(
                   offset: moveAnimation.value,
                   child: Transform.scale(
-                      scale: animation.value, child: Text("Move..")),
+                      scale: animation.value, child: const Text("Move..")),
                 ),
               );
             }),
@@ -221,12 +227,12 @@ class _AnimatedLikeButtonState extends State<AnimatedLikeButton>
             },
             child: const Text('show')),
         AnimatedContainer(
-          duration: Duration(seconds: 1), // Animation duration
+          duration: const Duration(seconds: 1), // Animation duration
           curve: Curves.easeInOut, // Animation curve
           width: _isContainerVisible ? 200 : 0,
           height: _isContainerVisible ? 200 : 0,
           color: Colors.blue,
-          child: Center(
+          child: const Center(
             child: Text('This is a container'),
           ),
         ),
