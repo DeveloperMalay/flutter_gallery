@@ -1,5 +1,8 @@
 part of '../../presentation.dart';
 
+
+// TODO checK this github for reference    https://github.com/monster555/flutter_parallax_swiper/blob/main/lib/config/drag_scroll_behavior_configuration.dart
+
 class VerticalParalaxScreen extends StatefulWidget {
   const VerticalParalaxScreen({super.key});
 
