@@ -1,3 +1,5 @@
+part of '../data.dart';
+
 class Location {
   const Location({
     required this.name,

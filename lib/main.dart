@@ -1,23 +1,28 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 
-import 'src/presentation/presentation.dart';
+import 'src/shared/shared.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
 }
 
 const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+  MyApp({super.key});
+  final botToastBuilder = BotToastInit();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Gallery',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
-      home: const ChooseViewScreen(),
+      routerConfig: AppRoutes.router,
+      builder: (context, child) {
+        child = botToastBuilder(context, child);
+        return child;
+      },
     );
   }
 }
