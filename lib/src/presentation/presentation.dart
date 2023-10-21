@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gallery/main.dart';
+import 'package:go_router/go_router.dart';
 
+import '../data/data.dart';
+import '../shared/routes/routes.dart';
 import 'screen/horizontal_paralax_view/horizontal_paralax_view_screen.dart';
 import 'base/base_state_wrapper.dart';
 import 'screen/vertical_paralax_view/widgets/paralax_view.dart';
