@@ -1,6 +1,5 @@
 part of '../../presentation.dart';
 
-
 // TODO checK this github for reference    https://github.com/monster555/flutter_parallax_swiper/blob/main/lib/config/drag_scroll_behavior_configuration.dart
 
 class VerticalParalaxScreen extends StatefulWidget {
@@ -16,13 +15,7 @@ class _VerticalParalaxScreenState
   Widget onBuild(
       BuildContext context, BoxConstraints constraints, PlatformType platform) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: const Icon(Icons.arrow_back_ios, color: darkBlue),
-        ),
+      appBar: MAppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text(
           'Paralax Effect',

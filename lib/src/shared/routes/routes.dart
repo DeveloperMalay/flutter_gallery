@@ -3,6 +3,8 @@
 enum Routes {
   CHOOSE_OPTIONS,
   VERTICAL_PARALAX_VIEW,
+  HERO_ANIMATION_VIEW,
+  STAGGERED_ANIMATION,
 }
 
 extension RoutesExt on Routes {

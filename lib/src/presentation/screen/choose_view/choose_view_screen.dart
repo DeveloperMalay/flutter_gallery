@@ -5,18 +5,6 @@ class ChooseViewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<OptionsModel> options = [
-      OptionsModel(
-          option: 'Vertical Paralax View',
-          onTap: () {
-            context.pushNamed(Routes.VERTICAL_PARALAX_VIEW.toNamed);
-          }),
-      OptionsModel(
-          option: 'Vertical Paralax View',
-          onTap: () {
-            context.pushNamed(Routes.VERTICAL_PARALAX_VIEW.toNamed);
-          }),
-    ];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: darkBlue,
@@ -37,7 +25,9 @@ class ChooseViewScreen extends StatelessWidget {
                 itemCount: options.length,
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: options[index].onTap,
+                    onTap: () {
+                      context.pushNamed(options[index].route);
+                    },
                     child: Row(
                       children: [
                         const Icon(

@@ -31,6 +31,26 @@ class AppRoutes {
         child: const VerticalParalaxScreen(),
       ),
     ),
+    GoRoute(
+      path: Routes.HERO_ANIMATION_VIEW.toPath,
+      name: Routes.HERO_ANIMATION_VIEW.toNamed,
+      builder: (context, state) => const HeroAnimationScreen(),
+      pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+        context: context,
+        state: state,
+        child: const HeroAnimationScreen(),
+      ),
+    ),
+    GoRoute(
+      path: Routes.STAGGERED_ANIMATION.toPath,
+      name: Routes.STAGGERED_ANIMATION.toNamed,
+      builder: (context, state) => StaggeredAnimationPage(),
+      pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+        context: context,
+        state: state,
+        child: StaggeredAnimationPage(),
+      ),
+    ),
   ]);
   static GoRouter get router => _router;
 }
