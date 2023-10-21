@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Gallery',
+      theme: AppTheme.light(),
       debugShowCheckedModeBanner: false,
       routerConfig: AppRoutes.router,
       builder: (context, child) {
