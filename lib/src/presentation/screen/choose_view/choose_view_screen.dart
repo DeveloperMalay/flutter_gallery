@@ -15,6 +15,7 @@ class ChooseViewScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
       ),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -28,18 +29,33 @@ class ChooseViewScreen extends StatelessWidget {
                     onTap: () {
                       context.pushNamed(options[index].route);
                     },
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.radio_button_checked_outlined,
-                          size: 15,
-                        ),
-                        const SizedBox(width: 10),
-                        Text(
-                          options[index].option,
-                          style: const TextStyle(fontSize: 20),
-                        ),
-                      ],
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      padding: const EdgeInsets.all(5),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0x3FCECECE),
+                            blurRadius: 2,
+                            offset: Offset(0, 2),
+                            spreadRadius: 0,
+                          )
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            options[index].option,
+                            style: const TextStyle(fontSize: 16),
+                          ),
+                          const Icon(
+                            Icons.arrow_forward_ios,
+                            size: 15,
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 }),
