@@ -290,24 +290,24 @@ class _ParallaxEffectScreenState extends State<ParallaxEffectScreen> {
                 colour: Colors.white,
                 left: 170 - divOne * 3,
                 top: 120 + divFive,
-                text: "Demo of"),
+                text: "The\nmountains"),
             ParallaxText(
                 colour: Colors.white,
                 left: 20 + divOne * 2,
                 top: 400 + divFive / 2,
-                text: "Parallex\n  Scrolling"),
+                text: "are calling,\nand"),
             ParallaxImage(
                 left: 20,
                 top: 100 - divOne,
                 height: 200,
                 width: 200,
                 asset:
-                    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+                    'https://hips.hearstapps.com/hmg-prod/images/nature-captions-1-1672892626.jpg?crop=1xw:1xh;center,top&resize=980:*',
                 widget: ParallaxText(
                   colour: const Color.fromRGBO(130, 0, 94, 1),
                   left: 150 - divOne * 3,
                   top: 20 + divOne + divFive,
-                  text: "Demo of",
+                  text: "The\nmountains",
                 )),
             ParallaxImage(
                 left: 200 - divOne,
@@ -315,18 +315,18 @@ class _ParallaxEffectScreenState extends State<ParallaxEffectScreen> {
                 height: 300,
                 width: 300,
                 asset:
-                    "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1698192000&semt=sph",
+                    'https://hips.hearstapps.com/hmg-prod/images/nature-captions-3-1672892657.jpg?crop=0.9992927864214993xw:1xh;center,top&resize=980:*',
                 widget: ParallaxText(
                   colour: const Color.fromRGBO(130, 0, 94, 1),
                   left: -180 + divOne * 3,
                   top: 50 + divOne + divFive / 2,
-                  text: "Parallax\n  Scrolling",
+                  text: "are calling,\nand",
                 )),
             ParallaxText(
               colour: Colors.white,
               left: divFive,
               top: 720 - divOne,
-              text: "Be creative",
+              text: "I must go!",
             ),
             ParallaxImage(
                 left: 95,
@@ -334,12 +334,12 @@ class _ParallaxEffectScreenState extends State<ParallaxEffectScreen> {
                 height: 400,
                 width: 230,
                 asset:
-                    "https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg",
+                    "https://images.unsplash.com/photo-1585409677983-0f6c41ca9c3b?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D",
                 widget: ParallaxText(
                   colour: const Color.fromRGBO(130, 0, 94, 1),
                   left: -95 + divFive,
                   top: 20,
-                  text: "Be creative",
+                  text: "I must go!",
                 ))
           ],
         ),

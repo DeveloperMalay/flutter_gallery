@@ -17,7 +17,7 @@ final List<OptionsModel> options = [
     route: Routes.VERTICAL_PARALAX_VIEW.toNamed,
   ),
   OptionsModel(
-    option: 'Hero Animation',
+    option: 'Paralax Scroling',
     route: Routes.HERO_ANIMATION_VIEW.toNamed,
   ),
   OptionsModel(
