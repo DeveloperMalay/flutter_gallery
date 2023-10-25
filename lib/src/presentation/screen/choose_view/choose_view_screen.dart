@@ -6,14 +6,10 @@ class ChooseViewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: MAppBar(
+        leading: Container(),
+        title: const Text('Choose View'),
         backgroundColor: darkBlue,
-        elevation: 0,
-        centerTitle: true,
-        title: const Text(
-          'Choose View',
-          style: TextStyle(color: Colors.white),
-        ),
       ),
       backgroundColor: Colors.white,
       body: Padding(
@@ -30,8 +26,8 @@ class ChooseViewScreen extends StatelessWidget {
                       position: index,
                       duration: const Duration(milliseconds: 500),
                       child: SlideAnimation(
-                        // verticalOffset: 50.0,
-                        horizontalOffset: 50.0,
+                        verticalOffset: -50.0,
+                        horizontalOffset: -50.0,
                         child: FadeInAnimation(
                           child: InkWell(
                             onTap: () {

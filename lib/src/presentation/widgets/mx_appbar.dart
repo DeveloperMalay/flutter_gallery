@@ -21,7 +21,7 @@ class MAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: backgroundColor ?? Theme.of(context).primaryColor,
+      backgroundColor: backgroundColor ?? darkBlue,
       elevation: elevation ?? 0,
       leadingWidth: 35,
       titleSpacing: 0,
@@ -36,7 +36,7 @@ class MAppBar extends StatelessWidget implements PreferredSizeWidget {
             },
             icon: const Icon(
               Icons.arrow_back_ios,
-              color: Colors.black,
+              color: Colors.white,
               size: 16,
             ),
           ),

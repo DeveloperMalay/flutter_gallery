@@ -16,10 +16,9 @@ class _VerticalParalaxScreenState
       BuildContext context, BoxConstraints constraints, PlatformType platform) {
     return Scaffold(
       appBar: MAppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text(
           'Paralax Effect',
-          style: TextStyle(color: darkBlue),
+          style: TextStyle(color: Colors.white),
         ),
         actions: [
           InkWell(
@@ -34,7 +33,7 @@ class _VerticalParalaxScreenState
               padding: EdgeInsets.only(right: 10),
               child: Icon(
                 Icons.menu_outlined,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
           )

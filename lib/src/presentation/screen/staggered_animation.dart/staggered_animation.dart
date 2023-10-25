@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-
 //TODO:https://www.educative.io/answers/how-to-use-staggered-animations-in-flutter
-
 
 class StaggeredAnimationPage extends StatefulWidget {
   @override
@@ -30,7 +28,7 @@ class _StaggeredAnimationPageState extends State<StaggeredAnimationPage>
       });
 
     _circleAnimations = List<Animation<double>>.generate(
-      9, // Number of letters in "EDUCATIVE"
+      8, // Number of letters in "EDUCATIVE"
       (int index) => CurvedAnimation(
         parent: _controller,
         curve: Interval(0.1 * index, 1.0, curve: Curves.easeInOut),

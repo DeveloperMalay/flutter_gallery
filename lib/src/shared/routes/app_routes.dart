@@ -34,11 +34,11 @@ class AppRoutes {
     GoRoute(
       path: Routes.HERO_ANIMATION_VIEW.toPath,
       name: Routes.HERO_ANIMATION_VIEW.toNamed,
-      builder: (context, state) => const HeroAnimationScreen(),
+      builder: (context, state) => const ParallaxEffectScreen(),
       pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
         context: context,
         state: state,
-        child: const HeroAnimationScreen(),
+        child: const ParallaxEffectScreen(),
       ),
     ),
     GoRoute(

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/paralax_image.dart';
+import 'widgets/paralax_text.dart';
+
 class HorizontalParalaxViewScreen extends StatelessWidget {
   const HorizontalParalaxViewScreen({super.key});
 
@@ -237,6 +240,110 @@ class _AnimatedLikeButtonState extends State<AnimatedLikeButton>
           ),
         ),
       ],
+    );
+  }
+}
+
+class ParallaxEffectScreen extends StatefulWidget {
+  const ParallaxEffectScreen({Key? key}) : super(key: key);
+
+  @override
+  State<ParallaxEffectScreen> createState() => _ParallaxEffectScreenState();
+}
+
+class _ParallaxEffectScreenState extends State<ParallaxEffectScreen> {
+  String? asset;
+  double divOne = 0;
+  double divFive = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: NotificationListener(
+        onNotification: (notify) {
+          if (notify is ScrollUpdateNotification) {
+            setState(() {
+              divOne += notify.scrollDelta! / 1;
+              divFive += notify.scrollDelta! / 5;
+            });
+          }
+          return true;
+        },
+        child: Stack(
+          children: <Widget>[
+            ListView(
+              children: <Widget>[
+                Container(
+                    decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment(0.5, 0.0),
+                            colors: [
+                              Color.fromRGBO(130, 0, 94, 1),
+                              Colors.lightBlue
+                            ],
+                            tileMode: TileMode.mirror)),
+                    height: 1200)
+              ],
+            ),
+            ParallaxText(
+                colour: Colors.white,
+                left: 170 - divOne * 3,
+                top: 120 + divFive,
+                text: "Demo of"),
+            ParallaxText(
+                colour: Colors.white,
+                left: 20 + divOne * 2,
+                top: 400 + divFive / 2,
+                text: "Parallex\n  Scrolling"),
+            ParallaxImage(
+                left: 20,
+                top: 100 - divOne,
+                height: 200,
+                width: 200,
+                asset:
+                    "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+                widget: ParallaxText(
+                  colour: const Color.fromRGBO(130, 0, 94, 1),
+                  left: 150 - divOne * 3,
+                  top: 20 + divOne + divFive,
+                  text: "Demo of",
+                )),
+            ParallaxImage(
+                left: 200 - divOne,
+                top: 350 - divOne,
+                height: 300,
+                width: 300,
+                asset:
+                    "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?size=626&ext=jpg&ga=GA1.1.386372595.1698192000&semt=sph",
+                widget: ParallaxText(
+                  colour: const Color.fromRGBO(130, 0, 94, 1),
+                  left: -180 + divOne * 3,
+                  top: 50 + divOne + divFive / 2,
+                  text: "Parallax\n  Scrolling",
+                )),
+            ParallaxText(
+              colour: Colors.white,
+              left: divFive,
+              top: 720 - divOne,
+              text: "Be creative",
+            ),
+            ParallaxImage(
+                left: 95,
+                top: 700 - divOne,
+                height: 400,
+                width: 230,
+                asset:
+                    "https://cdn.pixabay.com/photo/2016/05/05/02/37/sunset-1373171_1280.jpg",
+                widget: ParallaxText(
+                  colour: const Color.fromRGBO(130, 0, 94, 1),
+                  left: -95 + divFive,
+                  top: 20,
+                  text: "Be creative",
+                ))
+          ],
+        ),
+      ),
     );
   }
 }
