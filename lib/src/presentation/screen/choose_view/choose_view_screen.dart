@@ -24,7 +24,7 @@ class ChooseViewScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return AnimationConfiguration.staggeredList(
                       position: index,
-                      duration: const Duration(milliseconds: 500),
+                      duration: const Duration(milliseconds: 800),
                       child: SlideAnimation(
                         verticalOffset: -50.0,
                         horizontalOffset: -50.0,

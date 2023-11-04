@@ -32,8 +32,8 @@ class AppRoutes {
       ),
     ),
     GoRoute(
-      path: Routes.HERO_ANIMATION_VIEW.toPath,
-      name: Routes.HERO_ANIMATION_VIEW.toNamed,
+      path: Routes.PARALAX_SCROLL_VIEW.toPath,
+      name: Routes.PARALAX_SCROLL_VIEW.toNamed,
       builder: (context, state) => const ParallaxEffectScreen(),
       pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
         context: context,
@@ -44,11 +44,21 @@ class AppRoutes {
     GoRoute(
       path: Routes.STAGGERED_ANIMATION.toPath,
       name: Routes.STAGGERED_ANIMATION.toNamed,
-      builder: (context, state) => StaggeredAnimationPage(),
+      builder: (context, state) => const StaggeredAnimationPage(),
       pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
         context: context,
         state: state,
-        child: StaggeredAnimationPage(),
+        child: const StaggeredAnimationPage(),
+      ),
+    ),
+    GoRoute(
+      path: Routes.HERO_ANIMATION_VIEW.toPath,
+      name: Routes.HERO_ANIMATION_VIEW.toNamed,
+      builder: (context, state) => const HeroAnimationScreen(),
+      pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+        context: context,
+        state: state,
+        child: const HeroAnimationScreen(),
       ),
     ),
   ]);
@@ -65,11 +75,12 @@ CustomTransitionPage buildPageWithDefaultTransition<T>({
     child: child,
     transitionsBuilder: (context, animation, secondaryAnimation, child) =>
         SlideTransition(
-            position: Tween<Offset>(
-              begin: const Offset(1.0, 0.0),
-              end: Offset.zero,
-            ).animate(animation),
-            child: child),
+      position: Tween<Offset>(
+        begin: const Offset(1.0, 0.0),
+        end: Offset.zero,
+      ).animate(animation),
+      child: child,
+    ),
     transitionDuration: const Duration(milliseconds: 300),
   );
 }

@@ -24,4 +24,8 @@ final List<OptionsModel> options = [
     option: 'Staggered Animation',
     route: Routes.STAGGERED_ANIMATION.toNamed,
   ),
+  OptionsModel(
+    option: 'Hero Animation',
+    route: Routes.HERO_ANIMATION_VIEW.toNamed,
+  ),
 ];

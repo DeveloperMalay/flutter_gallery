@@ -139,7 +139,7 @@ class AppLightScheme extends BaseColorScheme {
 
   @override
   Color getBackgroundColor() {
-    return DColorScheme.backgroundColor;
+    return MColorScheme.backgroundColor;
   }
 
   @override
@@ -149,22 +149,22 @@ class AppLightScheme extends BaseColorScheme {
 
   @override
   Color getPrimaryColor() {
-    return DColorScheme.primaryColor;
+    return MColorScheme.primaryColor;
   }
 
   @override
   Color getPrimaryTextColor() {
-    return DColorScheme.primaryTextColor;
+    return MColorScheme.primaryTextColor;
   }
 
   @override
   Color getSecondaryColor() {
-    return DColorScheme.secondaryColor;
+    return MColorScheme.secondaryColor;
   }
 
   @override
   Color getSecondaryTextColor() {
-    return DColorScheme.secondaryTextColor;
+    return MColorScheme.secondaryTextColor;
   }
 }
 

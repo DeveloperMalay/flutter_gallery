@@ -1,6 +1,6 @@
 part of '../shared.dart';
 
-mixin DColorScheme {
+mixin MColorScheme {
   static const primaryColor = Color(0xFF003300);
   static const secondaryColor = Color(0xFF5AAD65);
   static const accentColor = Color(0xFFF6C946);
@@ -12,6 +12,7 @@ mixin DColorScheme {
   static const onboardingBgColor = Color(0xFFECF9ED);
   static const eventsuccessBgColor = Color(0xFFF4FCFF);
   static const nearyoutagColor = Color(0xFF28FFD8);
+  static const purpleColor = Color(0XFF8200ff);
   static MaterialColor greyColorPalette = const MaterialColor(
     0xFFE5E5E5,
     <int, Color>{
