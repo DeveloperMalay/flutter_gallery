@@ -146,29 +146,78 @@ class _ProductDetailsScreenState
         title: Text('Product Details'),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Hero(
             tag: productList[int.parse(widget.index)].imageUrl,
             child: Container(
-              height: 60,
-              width: 60,
+              height: 300,
+              width: context.screenWidth,
               decoration: BoxDecoration(
-                  color: MColorScheme.greyColorPalette[200],
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(
-                      color: MColorScheme.backgroundColor, width: 1)),
+                color: Colors.white,
+                // color: MColorScheme.greyColorPalette[200],
+                borderRadius: BorderRadius.circular(0),
+                // border:
+                // Border.all(color: MColorScheme.backgroundColor, width: 1),
+              ),
               child: Center(
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(5),
+                  borderRadius: BorderRadius.circular(0),
                   child: Image.network(
                     productList[int.parse(widget.index)].imageUrl,
-                    height: 60,
-                    width: 60,
+                    height: 300,
+                    width: context.screenWidth,
+                    fit: BoxFit.contain,
                   ),
                 ),
               ),
             ),
           ),
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: AnimationLimiter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: AnimationConfiguration.toStaggeredList(
+                  duration: const Duration(milliseconds: 1000),
+                  childAnimationBuilder: (widget) => SlideAnimation(
+                    horizontalOffset: 50.0,
+                    child: FadeInAnimation(
+                      child: widget,
+                    ),
+                  ),
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          productList[int.parse(widget.index)].title,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          '\$${productList[int.parse(widget.index)].price.toString()}',
+                          style: const TextStyle(
+                            color: darkBlue,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      productList[int.parse(widget.index)].details,
+                      style: const TextStyle(fontSize: 15),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
