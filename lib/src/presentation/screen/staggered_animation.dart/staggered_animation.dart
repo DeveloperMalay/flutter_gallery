@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
-//TODO:https://www.educative.io/answers/how-to-use-staggered-animations-in-flutter
+import '../../presentation.dart';
+
+//:https://www.educative.io/answers/how-to-use-staggered-animations-in-flutter
 
 class StaggeredAnimationPage extends StatefulWidget {
+  const StaggeredAnimationPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _StaggeredAnimationPageState createState() => _StaggeredAnimationPageState();
 }
 
@@ -18,7 +23,7 @@ class _StaggeredAnimationPageState extends State<StaggeredAnimationPage>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 1500),
     )..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           _controller.reverse();
@@ -50,7 +55,7 @@ class _StaggeredAnimationPageState extends State<StaggeredAnimationPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: const MAppBar(
         title: Text('Staggered Animations'),
       ),
       body: Center(
@@ -82,7 +87,7 @@ class _StaggeredAnimationPageState extends State<StaggeredAnimationPage>
                               child: Text(
                                 'EDUCATIVE'[
                                     _circleAnimations.indexOf(circleAnimation)],
-                                style: TextStyle(
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
                                 ),
