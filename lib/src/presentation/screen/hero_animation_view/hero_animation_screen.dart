@@ -4,7 +4,9 @@ import 'package:gallery/main.dart';
 import 'package:gallery/src/data/models/product_model.dart';
 import 'package:gallery/src/presentation/presentation.dart';
 import 'package:gallery/src/shared/extention/context_ext.dart';
+import 'package:gallery/src/shared/routes/routes.dart';
 import 'package:gallery/src/shared/shared.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../base/base_state_wrapper.dart';
 
@@ -36,63 +38,74 @@ class _HeroAnimationScreenState extends BaseStateWrapper<HeroAnimationScreen> {
                   verticalOffset: -50.0,
                   horizontalOffset: -50.0,
                   child: FadeInAnimation(
-                    child: Container(
-                      width: context.screenWidth * .8,
-                      padding: const EdgeInsets.only(
-                          bottom: 10, top: 10, left: 15, right: 15),
-                      margin: const EdgeInsets.only(bottom: 15),
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        shadows: const [
-                          BoxShadow(
-                              color: Color(0X3F000000),
-                              blurRadius: 15,
-                              offset: Offset(5, 5),
-                              spreadRadius: 0)
-                        ],
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: BoxDecoration(
-                                color: MColorScheme.greyColorPalette[200],
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(
-                                    color: MColorScheme.backgroundColor,
-                                    width: 1)),
-                            child: Center(
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(5),
-                                child: Image.network(
-                                  productList[index].imageUrl,
-                                  height: 60,
-                                  width: 60,
+                    child: InkWell(
+                      onTap: () {
+                        context.pushNamed(Routes.PRODUCT_DETAILS.toNamed,
+                            pathParameters: {
+                              'index': index.toString(),
+                            });
+                      },
+                      child: Container(
+                        width: context.screenWidth * .8,
+                        padding: const EdgeInsets.only(
+                            bottom: 10, top: 10, left: 15, right: 15),
+                        margin: const EdgeInsets.only(bottom: 15),
+                        decoration: ShapeDecoration(
+                          color: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          shadows: const [
+                            BoxShadow(
+                                color: Color(0X3F000000),
+                                blurRadius: 15,
+                                offset: Offset(5, 5),
+                                spreadRadius: 0)
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            Hero(
+                              tag: productList[index].imageUrl,
+                              child: Container(
+                                height: 60,
+                                width: 60,
+                                decoration: BoxDecoration(
+                                    color: MColorScheme.greyColorPalette[200],
+                                    borderRadius: BorderRadius.circular(5),
+                                    border: Border.all(
+                                        color: MColorScheme.backgroundColor,
+                                        width: 1)),
+                                child: Center(
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(5),
+                                    child: Image.network(
+                                      productList[index].imageUrl,
+                                      height: 60,
+                                      width: 60,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          const SizedBox(width: 15),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(productList[index].productName,
+                            const SizedBox(width: 15),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(productList[index].productName,
+                                    style: const TextStyle(
+                                        color: darkBlue,
+                                        fontWeight: FontWeight.bold)),
+                                const SizedBox(height: 5),
+                                Text(
+                                  "\$${productList[index].price.toString()}",
                                   style: const TextStyle(
-                                      color: darkBlue,
-                                      fontWeight: FontWeight.bold)),
-                              const SizedBox(height: 5),
-                              Text(
-                                "\$${productList[index].price.toString()}",
-                                style: const TextStyle(
-                                  color: darkBlue,
-                                ),
-                              )
-                            ],
-                          )
-                        ],
+                                    color: darkBlue,
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -117,8 +130,8 @@ class _HeroAnimationScreenState extends BaseStateWrapper<HeroAnimationScreen> {
 }
 
 class ProductDetailsScreen extends StatefulWidget {
-  const ProductDetailsScreen({super.key});
-
+  const ProductDetailsScreen({super.key, required this.index});
+  final String index;
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
 }
@@ -129,29 +142,47 @@ class _ProductDetailsScreenState
   Widget onBuild(
       BuildContext context, BoxConstraints constraints, PlatformType platform) {
     return Scaffold(
-      appBar: MAppBar(
+      appBar: const MAppBar(
         title: Text('Product Details'),
+      ),
+      body: Column(
+        children: [
+          Hero(
+            tag: productList[int.parse(widget.index)].imageUrl,
+            child: Container(
+              height: 60,
+              width: 60,
+              decoration: BoxDecoration(
+                  color: MColorScheme.greyColorPalette[200],
+                  borderRadius: BorderRadius.circular(5),
+                  border: Border.all(
+                      color: MColorScheme.backgroundColor, width: 1)),
+              child: Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  child: Image.network(
+                    productList[int.parse(widget.index)].imageUrl,
+                    height: 60,
+                    width: 60,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 
   @override
-  void onDispose() {
-    // TODO: implement onDispose
-  }
+  void onDispose() {}
 
   @override
-  void onInit() {
-    // TODO: implement onInit
-  }
+  void onInit() {}
 
   @override
-  void onPause() {
-    // TODO: implement onPause
-  }
+  void onPause() {}
 
   @override
-  void onResume() {
-    // TODO: implement onResume
-  }
+  void onResume() {}
 }

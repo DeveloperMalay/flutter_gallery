@@ -61,6 +61,20 @@ class AppRoutes {
         child: const HeroAnimationScreen(),
       ),
     ),
+    GoRoute(
+      path: '${Routes.PRODUCT_DETAILS.toPath}/:index',
+      name: Routes.PRODUCT_DETAILS.toNamed,
+      builder: (context, state) => ProductDetailsScreen(
+        index: state.pathParameters['index']!,
+      ),
+      pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+        context: context,
+        state: state,
+        child: ProductDetailsScreen(
+          index: state.pathParameters['index']!,
+        ),
+      ),
+    ),
   ]);
   static GoRouter get router => _router;
 }
