@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:gallery/main.dart';
@@ -53,13 +54,15 @@ class _HeroAnimationScreenState extends BaseStateWrapper<HeroAnimationScreen> {
                         decoration: ShapeDecoration(
                           color: Colors.white,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
                           shadows: const [
                             BoxShadow(
-                                color: Color(0X3F000000),
-                                blurRadius: 15,
-                                offset: Offset(5, 5),
-                                spreadRadius: 0)
+                              color: Color(0X3F000000),
+                              blurRadius: 15,
+                              offset: Offset(5, 5),
+                              spreadRadius: 0,
+                            )
                           ],
                         ),
                         child: Row(
@@ -78,10 +81,27 @@ class _HeroAnimationScreenState extends BaseStateWrapper<HeroAnimationScreen> {
                                 child: Center(
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(5),
-                                    child: Image.network(
-                                      productList[index].imageUrl,
+                                    child: CachedNetworkImage(
                                       height: 60,
                                       width: 60,
+                                      imageUrl: productList[index].imageUrl,
+                                      imageBuilder: (context, imageProvider) =>
+                                          Container(
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                          image: imageProvider,
+                                        )),
+                                      ),
+                                      fit: BoxFit.cover,
+                                      progressIndicatorBuilder:
+                                          (context, url, downloadProgress) =>
+                                              Center(
+                                        child: CircularProgressIndicator(
+                                          value: downloadProgress.progress,
+                                        ),
+                                      ),
+                                      errorWidget: (context, url, error) =>
+                                          const Icon(Icons.error),
                                     ),
                                   ),
                                 ),
@@ -153,23 +173,25 @@ class _ProductDetailsScreenState
             child: Container(
               height: 300,
               width: context.screenWidth,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                // color: MColorScheme.greyColorPalette[200],
-                borderRadius: BorderRadius.circular(0),
-                // border:
-                // Border.all(color: MColorScheme.backgroundColor, width: 1),
-              ),
-              child: Center(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(0),
-                  child: Image.network(
-                    productList[int.parse(widget.index)].imageUrl,
-                    height: 300,
-                    width: context.screenWidth,
-                    fit: BoxFit.contain,
+              decoration: const BoxDecoration(color: Colors.white),
+              child: CachedNetworkImage(
+                height: 300,
+                width: context.screenWidth,
+                imageUrl: productList[int.parse(widget.index)].imageUrl,
+                imageBuilder: (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                    image: imageProvider,
+                  )),
+                ),
+                fit: BoxFit.cover,
+                progressIndicatorBuilder: (context, url, downloadProgress) =>
+                    Center(
+                  child: CircularProgressIndicator(
+                    value: downloadProgress.progress,
                   ),
                 ),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             ),
           ),
