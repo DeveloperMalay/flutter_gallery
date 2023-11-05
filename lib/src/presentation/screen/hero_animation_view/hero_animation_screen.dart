@@ -180,9 +180,10 @@ class _ProductDetailsScreenState
                 imageUrl: productList[int.parse(widget.index)].imageUrl,
                 imageBuilder: (context, imageProvider) => Container(
                   decoration: BoxDecoration(
-                      image: DecorationImage(
-                    image: imageProvider,
-                  )),
+                    image: DecorationImage(
+                      image: imageProvider,
+                    ),
+                  ),
                 ),
                 fit: BoxFit.cover,
                 progressIndicatorBuilder: (context, url, downloadProgress) =>
@@ -233,7 +234,9 @@ class _ProductDetailsScreenState
                     const SizedBox(height: 10),
                     Text(
                       productList[int.parse(widget.index)].details,
-                      style: const TextStyle(fontSize: 15),
+                      style: const TextStyle(
+                        fontSize: 15,
+                      ),
                     ),
                   ],
                 ),
