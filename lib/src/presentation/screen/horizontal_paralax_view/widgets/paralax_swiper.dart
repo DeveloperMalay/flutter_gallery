@@ -1,8 +1,6 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-
-import '../../shared/config/drag_scroll_behavior_config.dart';
+import '../../../../shared/config/drag_scroll_behavior_config.dart';
 
 class ParallaxSwiper extends StatefulWidget {
   /// A widget that displays a parallax swiper with multiple images.
@@ -157,7 +155,7 @@ class _ParallaxSwiperState extends State<ParallaxSwiper> {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  'Image ${index + 1}',
+                  'Item $index',
                   style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                         color: Colors.white,
                       ),
@@ -253,7 +251,7 @@ class _SwiperItem extends StatelessWidget {
                 // Apply a scale transformation to the image  to prevent clipping when translated.
                 scale: 1.2 * scale,
                 child: LayoutBuilder(builder: (context, constraints) {
-                  return Image.network(
+                  return Image.asset(
                     image,
                     width: constraints.maxWidth,
                     height: constraints.maxHeight,

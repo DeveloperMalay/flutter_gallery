@@ -25,10 +25,8 @@ class ParallaxImage extends StatelessWidget {
         top: top,
         child: Container(
           decoration: BoxDecoration(
-              image:
-                  DecorationImage(fit: BoxFit.cover, image: NetworkImage(asset)
-                      // image: ExactAssetImage("assets/images/$asset.png")
-                      ),
+              image: DecorationImage(
+                  fit: BoxFit.cover, image: NetworkImage(asset)),
               borderRadius: BorderRadius.circular(12.0)),
           height: height,
           width: width,

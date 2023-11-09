@@ -42,6 +42,16 @@ class AppRoutes {
       ),
     ),
     GoRoute(
+      path: Routes.PARALAX_SWIPER_SCREEN.toPath,
+      name: Routes.PARALAX_SWIPER_SCREEN.toNamed,
+      builder: (context, state) => ParalaxSwiperScreen(),
+      pageBuilder: (context, state) => buildPageWithDefaultTransition<void>(
+        context: context,
+        state: state,
+        child: ParalaxSwiperScreen(),
+      ),
+    ),
+    GoRoute(
       path: Routes.STAGGERED_ANIMATION.toPath,
       name: Routes.STAGGERED_ANIMATION.toNamed,
       builder: (context, state) => const StaggeredAnimationPage(),

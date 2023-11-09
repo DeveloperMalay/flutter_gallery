@@ -14,7 +14,7 @@ final List<OptionsModel> options = [
   ),
   OptionsModel(
     option: 'horizontal Paralax View',
-    route: Routes.VERTICAL_PARALAX_VIEW.toNamed,
+    route: Routes.PARALAX_SWIPER_SCREEN.toNamed,
   ),
   OptionsModel(
     option: 'Paralax Scroling',

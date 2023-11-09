@@ -209,17 +209,20 @@ class _AnimatedLikeButtonState extends State<AnimatedLikeButton>
     return Column(
       children: [
         AnimatedBuilder(
-            animation: controller,
-            builder: (context, child) {
-              return Opacity(
-                opacity: animation.value,
-                child: Transform.translate(
-                  offset: moveAnimation.value,
-                  child: Transform.scale(
-                      scale: animation.value, child: const Text("Move..")),
+          animation: controller,
+          builder: (context, child) {
+            return Opacity(
+              opacity: animation.value,
+              child: Transform.translate(
+                offset: moveAnimation.value,
+                child: Transform.scale(
+                  scale: animation.value,
+                  child: const Text("Move.."),
                 ),
-              );
-            }),
+              ),
+            );
+          },
+        ),
         TextButton(
             onPressed: () {
               controller.reset();
