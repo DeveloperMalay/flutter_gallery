@@ -7,6 +7,7 @@ enum Routes {
   HERO_ANIMATION_VIEW,
   STAGGERED_ANIMATION,
   PRODUCT_DETAILS,
+  PARALAX_SWIPER_SCREEN,
 }
 
 extension RoutesExt on Routes {
