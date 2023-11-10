@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/config/drag_scroll_behavior_config.dart';
@@ -253,12 +254,18 @@ class _SwiperItem extends StatelessWidget {
                 // Apply a scale transformation to the image  to prevent clipping when translated.
                 scale: 1.2 * scale,
                 child: LayoutBuilder(builder: (context, constraints) {
-                  return Image.network(
-                    image,
+                  return CachedNetworkImage(
+                    imageUrl: image,
                     width: constraints.maxWidth,
                     height: constraints.maxHeight,
                     fit: BoxFit.cover,
                   );
+                  // return Image.network(
+                  //   image,
+                  //   width: constraints.maxWidth,
+                  //   height: constraints.maxHeight,
+                  //   fit: BoxFit.cover,
+                  // );
                 }),
               ),
             ),

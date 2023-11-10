@@ -27,14 +27,14 @@ class AnimatedContainerPopup extends StatefulWidget {
   const AnimatedContainerPopup({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _AnimatedContainerPopupState createState() => _AnimatedContainerPopupState();
 }
 
 class _AnimatedContainerPopupState extends State<AnimatedContainerPopup> {
-  final double _containerHeight = 100.0;
+  double _containerHeight = 100.0;
+  double _containerwidth = 200.0;
   bool _isPopupVisible = false;
-
+  bool changeColor = false;
   void _togglePopup() {
     setState(() {
       _isPopupVisible = !_isPopupVisible;
@@ -54,19 +54,33 @@ class _AnimatedContainerPopupState extends State<AnimatedContainerPopup> {
             AnimatedContainer(
               duration: const Duration(seconds: 1),
               height: _containerHeight,
-              width: 200,
-              color: Colors.blue,
+              width: _containerwidth,
+              color: changeColor ? Colors.blue : Colors.red,
               child: Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    _togglePopup();
+                    setState(() {
+                      changeColor != changeColor;
+                      _containerHeight = 300.0;
+                      _containerwidth = 300.0;
+                    });
+                    // _togglePopup();
                   },
                   child: const Text('Toggle Popup'),
                 ),
               ),
             ),
-            if (_isPopupVisible) _buildPopup(),
-            const AnimatedLikeButton()
+            TextButton(
+                onPressed: () {
+                  setState(() {
+                    changeColor = !changeColor;
+                    _containerHeight = 100;
+                    _containerwidth = 200;
+                  });
+                },
+                child: Text('change color')),
+            // if (_isPopupVisible) _buildPopup(),
+            const AnimatedLikeButton(),
           ],
         ),
       ),
@@ -277,41 +291,47 @@ class _ParallaxEffectScreenState extends State<ParallaxEffectScreen> {
             ListView(
               children: <Widget>[
                 Container(
-                    decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment(0.5, 0.0),
-                            colors: [
-                              Color.fromRGBO(130, 0, 94, 1),
-                              Colors.lightBlue
-                            ],
-                            tileMode: TileMode.mirror)),
-                    height: 1200)
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment(0.5, 0.0),
+                      colors: [
+                        Color.fromRGBO(130, 0, 94, 1),
+                        Colors.lightBlue,
+                      ],
+                      tileMode: TileMode.mirror,
+                    ),
+                  ),
+                  height: 1200,
+                )
               ],
             ),
             ParallaxText(
-                colour: Colors.white,
-                left: 170 - divOne * 3,
-                top: 120 + divFive,
-                text: "The\nmountains"),
+              colour: Colors.white,
+              left: 170 - divOne * 3,
+              top: 120 + divFive,
+              text: "The\nmountains",
+            ),
             ParallaxText(
-                colour: Colors.white,
-                left: 20 + divOne * 2,
-                top: 400 + divFive / 2,
-                text: "are calling,\nand"),
+              colour: Colors.white,
+              left: 20 + divOne * 2,
+              top: 400 + divFive / 2,
+              text: "are calling,\nand",
+            ),
             ParallaxImage(
-                left: 20,
-                top: 100 - divOne,
-                height: 200,
-                width: 200,
-                asset:
-                    'https://hips.hearstapps.com/hmg-prod/images/nature-captions-1-1672892626.jpg?crop=1xw:1xh;center,top&resize=980:*',
-                widget: ParallaxText(
-                  colour: const Color.fromRGBO(130, 0, 94, 1),
-                  left: 150 - divOne * 3,
-                  top: 20 + divOne + divFive,
-                  text: "The\nmountains",
-                )),
+              left: 20,
+              top: 100 - divOne,
+              height: 200,
+              width: 200,
+              asset:
+                  'https://hips.hearstapps.com/hmg-prod/images/nature-captions-1-1672892626.jpg?crop=1xw:1xh;center,top&resize=980:*',
+              widget: ParallaxText(
+                colour: const Color.fromRGBO(130, 0, 94, 1),
+                left: 150 - divOne * 3,
+                top: 20 + divOne + divFive,
+                text: "The\nmountains",
+              ),
+            ),
             ParallaxImage(
                 left: 200 - divOne,
                 top: 350 - divOne,

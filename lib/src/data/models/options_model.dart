@@ -18,7 +18,7 @@ final List<OptionsModel> options = [
   ),
   OptionsModel(
     option: 'Paralax Scroling',
-    route: Routes.HERO_ANIMATION_VIEW.toNamed,
+    route: Routes.PARALAX_SCROLL_VIEW.toNamed,
   ),
   OptionsModel(
     option: 'Staggered Animation',

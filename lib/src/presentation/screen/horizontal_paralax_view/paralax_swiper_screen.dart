@@ -35,12 +35,11 @@ class ParalaxSwiperScreen extends StatelessWidget {
                 ),
               ),
             ),
-            // The following examples show how to use the ParallaxSwiper widget.
             SizedBox(
               height: 300,
               child: ParallaxSwiper(
                 images: images,
-                viewPortFraction: 0.5,
+                viewPortFraction: 0.85,
               ),
             ),
             const Padding(
