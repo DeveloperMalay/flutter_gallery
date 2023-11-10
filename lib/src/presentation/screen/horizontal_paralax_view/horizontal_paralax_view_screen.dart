@@ -27,14 +27,14 @@ class AnimatedContainerPopup extends StatefulWidget {
   const AnimatedContainerPopup({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _AnimatedContainerPopupState createState() => _AnimatedContainerPopupState();
 }
 
 class _AnimatedContainerPopupState extends State<AnimatedContainerPopup> {
-  final double _containerHeight = 100.0;
+  double _containerHeight = 100.0;
+  double _containerwidth = 200.0;
   bool _isPopupVisible = false;
-
+  bool changeColor = false;
   void _togglePopup() {
     setState(() {
       _isPopupVisible = !_isPopupVisible;
@@ -54,19 +54,33 @@ class _AnimatedContainerPopupState extends State<AnimatedContainerPopup> {
             AnimatedContainer(
               duration: const Duration(seconds: 1),
               height: _containerHeight,
-              width: 200,
-              color: Colors.blue,
+              width: _containerwidth,
+              color: changeColor ? Colors.blue : Colors.red,
               child: Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    _togglePopup();
+                    setState(() {
+                      changeColor != changeColor;
+                      _containerHeight = 300.0;
+                      _containerwidth = 300.0;
+                    });
+                    // _togglePopup();
                   },
                   child: const Text('Toggle Popup'),
                 ),
               ),
             ),
-            if (_isPopupVisible) _buildPopup(),
-            const AnimatedLikeButton()
+            TextButton(
+                onPressed: () {
+                  setState(() {
+                    changeColor = !changeColor;
+                    _containerHeight = 100;
+                    _containerwidth = 200;
+                  });
+                },
+                child: Text('change color')),
+            // if (_isPopupVisible) _buildPopup(),
+            const AnimatedLikeButton(),
           ],
         ),
       ),

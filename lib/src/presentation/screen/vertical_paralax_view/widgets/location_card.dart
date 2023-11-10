@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'card_flow_delegate.dart';
@@ -43,9 +44,9 @@ class LocationListItem extends StatelessWidget {
         backgroundImageKey: _backgroundImageKey,
       ),
       children: [
-        Image.network(
+        CachedNetworkImage(
           key: _backgroundImageKey,
-          imageUrl,
+          imageUrl: imageUrl,
           fit: BoxFit.cover,
         ),
       ],
