@@ -291,41 +291,47 @@ class _ParallaxEffectScreenState extends State<ParallaxEffectScreen> {
             ListView(
               children: <Widget>[
                 Container(
-                    decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment(0.5, 0.0),
-                            colors: [
-                              Color.fromRGBO(130, 0, 94, 1),
-                              Colors.lightBlue
-                            ],
-                            tileMode: TileMode.mirror)),
-                    height: 1200)
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment(0.5, 0.0),
+                      colors: [
+                        Color.fromRGBO(130, 0, 94, 1),
+                        Colors.lightBlue,
+                      ],
+                      tileMode: TileMode.mirror,
+                    ),
+                  ),
+                  height: 1200,
+                )
               ],
             ),
             ParallaxText(
-                colour: Colors.white,
-                left: 170 - divOne * 3,
-                top: 120 + divFive,
-                text: "The\nmountains"),
+              colour: Colors.white,
+              left: 170 - divOne * 3,
+              top: 120 + divFive,
+              text: "The\nmountains",
+            ),
             ParallaxText(
-                colour: Colors.white,
-                left: 20 + divOne * 2,
-                top: 400 + divFive / 2,
-                text: "are calling,\nand"),
+              colour: Colors.white,
+              left: 20 + divOne * 2,
+              top: 400 + divFive / 2,
+              text: "are calling,\nand",
+            ),
             ParallaxImage(
-                left: 20,
-                top: 100 - divOne,
-                height: 200,
-                width: 200,
-                asset:
-                    'https://hips.hearstapps.com/hmg-prod/images/nature-captions-1-1672892626.jpg?crop=1xw:1xh;center,top&resize=980:*',
-                widget: ParallaxText(
-                  colour: const Color.fromRGBO(130, 0, 94, 1),
-                  left: 150 - divOne * 3,
-                  top: 20 + divOne + divFive,
-                  text: "The\nmountains",
-                )),
+              left: 20,
+              top: 100 - divOne,
+              height: 200,
+              width: 200,
+              asset:
+                  'https://hips.hearstapps.com/hmg-prod/images/nature-captions-1-1672892626.jpg?crop=1xw:1xh;center,top&resize=980:*',
+              widget: ParallaxText(
+                colour: const Color.fromRGBO(130, 0, 94, 1),
+                left: 150 - divOne * 3,
+                top: 20 + divOne + divFive,
+                text: "The\nmountains",
+              ),
+            ),
             ParallaxImage(
                 left: 200 - divOne,
                 top: 350 - divOne,
