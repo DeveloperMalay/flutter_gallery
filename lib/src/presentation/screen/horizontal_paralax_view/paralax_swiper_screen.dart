@@ -40,7 +40,7 @@ class ParalaxSwiperScreen extends StatelessWidget {
               height: 300,
               child: ParallaxSwiper(
                 images: images,
-                viewPortFraction: 0.5,
+                viewPortFraction: 0.85,
               ),
             ),
             const Padding(
